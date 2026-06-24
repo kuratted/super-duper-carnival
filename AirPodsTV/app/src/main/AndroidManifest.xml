@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ── Bluetooth permissions ───────────────────────────────────────────── -->
+    <!-- Legacy (API ≤ 30) -->
+    <uses-permission android:name="android.permission.BLUETOOTH"        android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"  android:maxSdkVersion="30"/>
+
+    <!-- Android 12+ runtime permissions -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+
+    <!-- Auto-connect on boot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <!-- ── TV feature declarations ─────────────────────────────────────────── -->
+    <!-- Required: declare touchscreen is NOT required so the Play Store shows this on TV -->
+    <uses-feature android:name="android.hardware.touchscreen"  android:required="false"/>
+    <uses-feature android:name="android.software.leanback"     android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AirPodsTV">
+
+        <!-- Main activity — shows in the TV launcher -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="keyboard|navigation|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <!-- LEANBACK_LAUNCHER puts the app on the TV home screen -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Boot receiver for auto-connect -->
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

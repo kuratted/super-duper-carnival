@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#0D0D1A"
+    android:padding="80dp">
+
+    <!-- ── Title ─────────────────────────────────────── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎧  AirPods Connect"
+        android:textSize="44sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- ── Detected device name ───────────────────────── -->
+    <TextView
+        android:id="@+id/tvDeviceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Looking for AirPods…"
+        android:textSize="26sp"
+        android:textColor="#8080AA"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- ── Live connection status ─────────────────────── -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="—"
+        android:textSize="22sp"
+        android:textColor="#C0C0E0"
+        android:layout_marginBottom="52dp"/>
+
+    <!-- ── Connect button ─────────────────────────────── -->
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="340dp"
+        android:layout_height="72dp"
+        android:text="Connect AirPods"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#6C63FF"
+        android:layout_marginBottom="18dp"
+        android:focusable="true"
+        android:nextFocusDown="@+id/btnDisconnect"/>
+
+    <!-- ── Disconnect button ───────────────────────────── -->
+    <Button
+        android:id="@+id/btnDisconnect"
+        android:layout_width="340dp"
+        android:layout_height="72dp"
+        android:text="Disconnect"
+        android:textSize="22sp"
+        android:textColor="#9090BB"
+        android:backgroundTint="#222233"
+        android:layout_marginBottom="40dp"
+        android:focusable="true"
+        android:nextFocusUp="@+id/btnConnect"
+        android:nextFocusDown="@+id/switchAutoConnect"/>
+
+    <!-- ── Auto-connect on boot ────────────────────────── -->
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Auto-connect on TV startup"
+            android:textSize="18sp"
+            android:textColor="#6060880"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchAutoConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:nextFocusUp="@+id/btnDisconnect"
+            app:thumbTint="#6C63FF"
+            app:trackTint="#3A3A5C"/>
+
+    </LinearLayout>
+
+</LinearLayout>

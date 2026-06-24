@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.AirPodsTV" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">#6C63FF</item>
+        <item name="colorPrimaryDark">#0D0D1A</item>
+        <item name="colorAccent">#6C63FF</item>
+        <item name="android:windowBackground">#0D0D1A</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+    </style>
+</resources>
